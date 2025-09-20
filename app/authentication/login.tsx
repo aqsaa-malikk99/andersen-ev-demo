@@ -17,6 +17,7 @@ export default function Login() {
                 primaryButtonText="Sign in"
                 footerText="Not a member?"
                 footerActionText="Register"
+                onPrimaryPress={()=> router.push("/(tabs)")}
                 onFooterPress={() => router.push("/authentication/register")}
             />
         </View>

@@ -14,5 +14,6 @@ export default function RootLayout() {
         return <Text>Loading...</Text>;
     }
 
+
     return <Stack screenOptions={{headerShown: false}} />;
 }

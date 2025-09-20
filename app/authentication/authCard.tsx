@@ -12,6 +12,7 @@ type AuthCardProps = {
     subtitle: string;
     fields: Field[];
     primaryButtonText: string;
+    onPrimaryPress: () => void;
     footerText: string;
     footerActionText: string;
     onFooterPress: () => void;
@@ -24,6 +25,7 @@ export default function AuthCard({
                                      primaryButtonText,
                                      footerText,
                                      footerActionText,
+                                     onPrimaryPress,
                                      onFooterPress,
                                  }: AuthCardProps) {
     return (
@@ -59,7 +61,7 @@ export default function AuthCard({
             ))}
 
             {/* Primary Button */}
-            <TouchableOpacity className="bg-gray-900 px-5 py-5 rounded-md">
+            <TouchableOpacity className="bg-gray-900 px-5 py-5 rounded-md" onPress={onPrimaryPress}>
                 <Text className="text-white text-center font-semibold">
                     {primaryButtonText}
                 </Text>

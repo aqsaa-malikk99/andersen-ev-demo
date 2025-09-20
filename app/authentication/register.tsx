@@ -1,5 +1,5 @@
 import { View } from "react-native";
-import { useRouter } from "expo-router";
+import {router, useRouter} from "expo-router";
 import AuthCard from "./authCard";
 
 export default function Register() {
@@ -18,6 +18,7 @@ export default function Register() {
                 primaryButtonText="Register"
                 footerText="Already a member?"
                 footerActionText="Login"
+                onPrimaryPress={()=> router.push("/(tabs)")}
                 onFooterPress={() => router.push("/authentication/login")}
             />
         </View>

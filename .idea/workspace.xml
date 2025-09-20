@@ -5,32 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="921a4dae-85d5-4998-afd2-7d2de5c3cd26" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/authentication/_layout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/authentication/authCard.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/authentication/login.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/authentication/register.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/Futura Black.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/Futura Medium.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/Futura Regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/readme.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/icons/adaptive-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/icons/ios-dark.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/icons/ios-light.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/icons/ios-tinted.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/icons/splash-icon-dark.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/icons/splash-icon-light.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/adaptive-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/logo-dark.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/babel.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/global.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/metro.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nativewind-env.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/andersen-ev-demo.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/(tabs)/_layout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/(tabs)/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/(tabs)/profile.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/addSchedule.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/constants/theme.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/placeholder.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/_layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/authentication/authCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/authentication/authCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/authentication/login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/authentication/login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/authentication/register.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/authentication/register.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +30,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
       </list>
     </option>
@@ -72,18 +63,22 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "schedules",
     "junie.onboarding.icon.badge.shown": "true",
     "last_opened_file_path": "/Users/aqsamalik/WebstormProjects/andersen-ev-demo/assets/fonts",
     "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "editing.templates",
+    "settings.editor.selected.configurable": "settings.javascript.prettier",
     "to.speed.mode.migration.done": "true",
     "ts.external.directory.path": "/Users/aqsamalik/WebstormProjects/andersen-ev-demo/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
@@ -94,9 +89,11 @@
       <recent name="$PROJECT_DIR$/assets/fonts" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/assets/fonts" />
       <recent name="$PROJECT_DIR$/assets/images" />
-      <recent name="$PROJECT_DIR$/assets/icons" />
+      <recent name="$PROJECT_DIR$/app" />
+      <recent name="$PROJECT_DIR$/app/(tabs)" />
+      <recent name="$PROJECT_DIR$/app/(tabs)/_add-schedule" />
+      <recent name="$PROJECT_DIR$/app/(tabs)/component" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -113,7 +110,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1758287598067</updated>
-      <workItem from="1758287599369" duration="13455000" />
+      <workItem from="1758287599369" duration="24143000" />
     </task>
     <servers />
   </component>
