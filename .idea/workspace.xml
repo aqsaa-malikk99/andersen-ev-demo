@@ -4,23 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="921a4dae-85d5-4998-afd2-7d2de5c3cd26" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/(tabs)/_layout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/(tabs)/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/(tabs)/profile.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/addSchedule.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/constants/theme.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/placeholder.png" afterDir="false" />
+    <list default="true" id="921a4dae-85d5-4998-afd2-7d2de5c3cd26" name="Changes" comment="Added Bottom navigation and add schedule page">
+      <change afterPath="$PROJECT_DIR$/app/scheduleItem.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/_layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/authentication/authCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/authentication/authCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/authentication/login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/authentication/login.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/authentication/register.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/authentication/register.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,6 +67,7 @@
     "node.js.selected.package.standard": "",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "/Users/aqsamalik/WebstormProjects/andersen-ev-demo/node_modules/prettier",
     "settings.editor.selected.configurable": "settings.javascript.prettier",
     "to.speed.mode.migration.done": "true",
     "ts.external.directory.path": "/Users/aqsamalik/WebstormProjects/andersen-ev-demo/node_modules/typescript/lib",
@@ -110,11 +100,24 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1758287598067</updated>
-      <workItem from="1758287599369" duration="24143000" />
+      <workItem from="1758287599369" duration="27516000" />
     </task>
+    <task id="LOCAL-00001" summary="Added Bottom navigation and add schedule page">
+      <option name="closed" value="true" />
+      <created>1758380175429</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1758380175429</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added Bottom navigation and add schedule page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Bottom navigation and add schedule page" />
   </component>
 </project>
