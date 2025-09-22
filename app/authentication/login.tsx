@@ -1,9 +1,51 @@
-import {Text, View, TouchableOpacity, TextInput} from "react-native";
+import {Text, View, TouchableOpacity, TextInput, Alert} from "react-native";
 import {Link, router} from "expo-router";
 import "../../global.css";
 import AuthCard from "@/app/authentication/authCard";
+import {loginUser, UserData} from "@/app/models/user";
+import * as SecureStore from 'expo-secure-store';
 
 export default function Login() {
+
+    function validate(formData: Record<string,any>):boolean {
+
+        const{
+            "Email":email,
+            "Password":password,
+        }=formData;
+
+        if(!email && !password && !(password.length > 0)){
+            Alert.alert("Error", "Please fill out all the details.");
+            return false;
+
+        }
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            Alert.alert("Error", "Please enter a valid email address.");
+            return false;
+        }
+
+        return true;
+    }
+    const handleLogin=async (formData:Record<string,any>):Promise<void>=>{
+       try{
+           if(validate(formData)) {
+               const user = await loginUser(formData["Email"], formData["Password"]);
+
+               if(user) {
+                   await SecureStore.setItemAsync("userSession", JSON.stringify(user));
+
+                   Alert.alert("Success", "Login successful!", [
+                       {text: "OK", onPress: () => router.replace("/(tabs)")},
+                   ]);
+               }
+           }
+
+
+       }catch (error: any) {
+           Alert.alert("Error", error.message || "Failed to register user.");
+       }
+    }
     return (
 
         <View className="flex-1 items-center justify-center bg-gray-100 px-4">
@@ -17,7 +59,7 @@ export default function Login() {
                 primaryButtonText="Sign in"
                 footerText="Not a member?"
                 footerActionText="Register"
-                onPrimaryPress={()=> router.push("/(tabs)")}
+                onPrimaryPress={handleLogin}
                 onFooterPress={() => router.push("/authentication/register")}
             />
         </View>

@@ -1,8 +1,9 @@
-import { View, Text, TouchableOpacity, FlatList } from "react-native";
+import { Text, TouchableOpacity, FlatList } from "react-native";
 import { useRouter } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import { SafeAreaView } from "react-native-safe-area-context";
-import ScheduleItem from "@/app/scheduleItem";
+import ScheduleItem from "@/app/components/scheduleItem";
+import * as SecureStore from "expo-secure-store";
 
 // Sample data
 const scheduleData = [
@@ -33,6 +34,8 @@ const scheduleData = [
 ];
 
 export default function MainPage() {
+
+    // const user= await SecureStore.getItemAsync("userSession");
     const router = useRouter();
 
     const renderScheduleItem = ({ item }: any) => {
@@ -51,7 +54,10 @@ export default function MainPage() {
     };
 
     return (
-        <SafeAreaView className="flex-1 bg-white mt-2 p-7">
+        <SafeAreaView className="flex-1 bg-white px-7 pt-7">
+            {/* notice px-7 pt-7 instead of p-7 */}
+
+
             {/* Greeting */}
             <Text className="font-[Futura] text-5xl mt-5 text-green mb-1">
                 Hello, Andrews
@@ -65,17 +71,18 @@ export default function MainPage() {
                 data={scheduleData}
                 renderItem={renderScheduleItem}
                 keyExtractor={(item) => item.id.toString()}
-                contentContainerStyle={{ paddingBottom: 100 }}
                 showsVerticalScrollIndicator={false}
+                contentContainerStyle={{ paddingBottom: 0 }} // 👈 removes extra bottom space
             />
 
             {/* Floating Action Button */}
             <TouchableOpacity
-                onPress={() => router.push("./addSchedule")}
+                onPress={() => router.push("./components/addSchedule")}
                 className="absolute bottom-10 right-10 bg-green p-4 rounded-full shadow-lg"
             >
                 <Ionicons name="add" size={30} color="white" />
             </TouchableOpacity>
+
         </SafeAreaView>
     );
 }

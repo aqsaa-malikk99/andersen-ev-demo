@@ -4,10 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="921a4dae-85d5-4998-afd2-7d2de5c3cd26" name="Changes" comment="Added Bottom navigation and add schedule page">
-      <change afterPath="$PROJECT_DIR$/app/scheduleItem.tsx" afterDir="false" />
+    <list default="true" id="921a4dae-85d5-4998-afd2-7d2de5c3cd26" name="Changes" comment="ScheduleItem added">
+      <change afterPath="$PROJECT_DIR$/app/components/dateField.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/constants/table.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/db/crud.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/db/database.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/db/migrations.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/user.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/splashScreen.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/utils/sessionManager.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/_layout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/(tabs)/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/profile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/addSchedule.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/addSchedule.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/authentication/authCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/authentication/authCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/authentication/login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/authentication/login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/authentication/register.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/authentication/register.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/scheduleItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/scheduleItem.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
@@ -39,6 +55,9 @@
     "accountId": "ae03d58a-76b6-4c81-9e2e-b9f99c685388"
   }
 }]]></component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 1
 }]]></component>
@@ -79,11 +98,11 @@
       <recent name="$PROJECT_DIR$/assets/fonts" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/components" />
       <recent name="$PROJECT_DIR$/assets/images" />
       <recent name="$PROJECT_DIR$/app" />
       <recent name="$PROJECT_DIR$/app/(tabs)" />
       <recent name="$PROJECT_DIR$/app/(tabs)/_add-schedule" />
-      <recent name="$PROJECT_DIR$/app/(tabs)/component" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -100,7 +119,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1758287598067</updated>
-      <workItem from="1758287599369" duration="27516000" />
+      <workItem from="1758287599369" duration="42495000" />
     </task>
     <task id="LOCAL-00001" summary="Added Bottom navigation and add schedule page">
       <option name="closed" value="true" />
@@ -110,7 +129,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758380175429</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="ScheduleItem added">
+      <option name="closed" value="true" />
+      <created>1758464342616</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1758464342616</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -118,6 +145,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added Bottom navigation and add schedule page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Bottom navigation and add schedule page" />
+    <MESSAGE value="ScheduleItem added" />
+    <option name="LAST_COMMIT_MESSAGE" value="ScheduleItem added" />
   </component>
 </project>

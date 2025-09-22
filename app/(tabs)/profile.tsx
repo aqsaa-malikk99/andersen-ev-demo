@@ -4,6 +4,8 @@ import { View, Text, TextInput, TouchableOpacity, Image, ScrollView } from "reac
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
 import { COLORS } from "@/app/constants/theme";
+import * as SecureStore from 'expo-secure-store';
+import {Link, router} from "expo-router";
 
 
 
@@ -18,6 +20,13 @@ export default function Profile() {
     const [phone, setPhone] = useState("7494882999");
 
     const toggleEdit = () => setEditMode(!editMode);
+
+    const  logOut= async ()=>{
+        await  SecureStore.deleteItemAsync("userSession");
+        console.log("logOut");
+        router.push("/authentication/login");
+
+    }
 
     return (
         <SafeAreaView className="flex-1 bg-white p-4">
@@ -112,6 +121,16 @@ export default function Profile() {
                             {editMode ? "Save" : "Edit Profile"}
                         </Text>
                     </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={logOut}
+                        className="mt-4 p-5 rounded-lg m-2 border border-red-500 items-center"
+
+                    >
+                        <Text className="text-red-500 font-[FuturaMedium]">
+                           Log out
+                        </Text>
+                    </TouchableOpacity>
+
                 </View>
             </ScrollView>
         </SafeAreaView>
