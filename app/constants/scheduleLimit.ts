@@ -1,0 +1,1 @@
+export const SCHEDULE_LIMIT = 10;

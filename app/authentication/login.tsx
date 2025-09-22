@@ -4,8 +4,11 @@ import "../../global.css";
 import AuthCard from "@/app/authentication/authCard";
 import {loginUser, UserData} from "@/app/models/user";
 import * as SecureStore from 'expo-secure-store';
+import {useDispatch} from "react-redux";
+import {setUser, User} from "@/app/store/userSlice";
 
 export default function Login() {
+    const dispatch = useDispatch();
 
     function validate(formData: Record<string,any>):boolean {
 
@@ -32,11 +35,23 @@ export default function Login() {
            if(validate(formData)) {
                const user = await loginUser(formData["Email"], formData["Password"]);
 
-               if(user) {
-                   await SecureStore.setItemAsync("userSession", JSON.stringify(user));
+               console.log("found user",user);
+               if (user) {
+                   // Map DB user to Redux User type
+                   const mappedUser: User = {
+                       id: user.id ? Number(user.id) : 0,  // fallback to 0 if missing
+                       firstName: user.firstName ?? "",
+                       lastName: user.lastName ?? "",
+                       email: user.email,
+                       dob: user.dob ?? "",
+                       phone: user.phone ?? "",
+                   };
+
+                   await SecureStore.setItemAsync("userSession", JSON.stringify(mappedUser));
+                   dispatch(setUser(mappedUser));
 
                    Alert.alert("Success", "Login successful!", [
-                       {text: "OK", onPress: () => router.replace("/(tabs)")},
+                       { text: "OK", onPress: () => router.replace("/(tabs)") },
                    ]);
                }
            }

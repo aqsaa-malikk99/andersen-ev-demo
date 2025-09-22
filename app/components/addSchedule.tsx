@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import { View, Text, TextInput, TouchableOpacity, ScrollView, Pressable } from "react-native";
 import { useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -8,6 +8,10 @@ import DropDownPicker from "react-native-dropdown-picker";
 import Slider from "@react-native-community/slider";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import {read} from "fs";
+import {getScheduleById, Schedule} from "@/app/models/schedule";
+import { useLocalSearchParams } from 'expo-router';
+import {RootState} from "@/app/store";
+import {useSelector} from "react-redux";
 
 
 export default function AddSchedule() {
@@ -26,7 +30,11 @@ export default function AddSchedule() {
         { label: "Charge Level Based", value: "charge" },
         { label: "Mileage Based", value: "mileage" },
     ]);
+    const currentUser = useSelector((state: RootState) => state.user.user);
+    const userId = currentUser?.id; // this is the ID you need
 
+    const[titlePage,setTitlePage] = useState("Add Schedule");
+    const[subtitlePage,setSubTitlePage] = useState("To setup a schedule you need to fill out the following details");
     // Time pickers
     const [showStartTime, setShowStartTime] = useState(false);
     const [showEndTime, setShowEndTime] = useState(false);
@@ -37,33 +45,105 @@ export default function AddSchedule() {
     const [readyTime, setReadyTime] = useState<Date | null>(null);
 
     const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+    const { scheduleId } = useLocalSearchParams<{ scheduleId?: string }>();
+
+    const[editingSchedule,setEditingSchedule] = useState<Schedule|null>(null);
+
+
+    useEffect(() => {
+        if (scheduleId) {
+            (async () => {
+                const schedule = await getScheduleById(scheduleId);
+                if (schedule) {
+                    setEditingSchedule(schedule);
+                    setTitlePage('Edit Schedule');
+                    setSubTitlePage('You cannot change the type of schedule here instead create a new Schedule');
+                    setScheduleName(schedule.title);
+                    setActiveDays(schedule.activeDays);
+                    setValue(schedule.type); // type is fixed
+                    if (schedule.startTime) setStartTime(new Date(schedule.startTime));
+                    if (schedule.endTime) setEndTime(new Date(schedule.endTime));
+                    if (schedule.readyBy) setReadyTime(new Date(schedule.readyBy));
+                    if (schedule.chargeLevel) setChargeLevel(schedule.chargeLevel);
+                    if (schedule.mileage) setMileage(schedule.mileage);
+                }
+            })();
+        }
+    }, [scheduleId]);
+
+    const daysOrder = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
     const toggleDay = (day: string) => {
+        let updatedDays = [];
         if (activeDays.includes(day)) {
-            setActiveDays(activeDays.filter((d) => d !== day));
+            updatedDays = activeDays.filter((d) => d !== day);
         } else {
-            setActiveDays([...activeDays, day]);
+            updatedDays = [...activeDays, day];
         }
+        // Sort according to week order
+        updatedDays.sort((a, b) => daysOrder.indexOf(a) - daysOrder.indexOf(b));
+        setActiveDays(updatedDays);
     };
+
+
 
     const formatTime = (date: Date | null) => {
         if (!date) return "Select time";
         return date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
     };
+// Inside your component, after handleCreate function
 
-    const handleCreate = () => {
-        console.log({
-            scheduleName,
-            scheduleType: value,
-            activeDays,
-            chargeLevel,
-            mileage,
-            startTime,
-            endTime,
-            readyTime,
-        });
-        router.back();
+    const handleDelete = async () => {
+        if (!editingSchedule) return;
+        try {
+            await editingSchedule.delete(); // make sure your Schedule class has a delete() method
+            router.back();
+        } catch (err) {
+            console.log("Failed to delete schedule:", err);
+        }
     };
+
+    const handleCreate = async () => {
+        try {
+            if (!userId) {
+                console.log("No logged-in user ID found!");
+                return;
+            }
+            if (editingSchedule) {
+                // Update existing schedule
+                editingSchedule.title = scheduleName;
+                editingSchedule.activeDays = activeDays;
+                editingSchedule.startTime = startTime?.toISOString();
+                editingSchedule.endTime = endTime?.toISOString();
+                editingSchedule.readyBy = readyTime?.toISOString();
+                editingSchedule.chargeLevel = value === "charge" ? chargeLevel : undefined;
+                editingSchedule.mileage = value === "mileage" ? mileage : undefined;
+
+                await editingSchedule.update();
+            } else {
+                // Create new schedule
+                const newSchedule = new Schedule({
+                    title: scheduleName,
+                    userId:currentUser?.id,
+                    type: value as "time" | "charge" | "mileage",
+                    startTime: startTime?.toISOString(),
+                    endTime: endTime?.toISOString(),
+                    readyBy: readyTime?.toISOString(),
+                    chargeLevel: value === "charge" ? chargeLevel : undefined,
+                    mileage: value === "mileage" ? mileage : undefined,
+                    activeDays,
+                });
+
+                await newSchedule.save();
+            }
+
+            router.back();
+        } catch (err) {
+            console.log("Failed to save schedule:", err);
+        }
+    };
+
+
 
     return (
         <SafeAreaView className="flex-1 bg-white px-4">
@@ -73,15 +153,17 @@ export default function AddSchedule() {
                     <Ionicons name="arrow-back" size={24} color="black" />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={handleCreate} className="p-2">
-                    <Text className="text-green font-[Futura]">Create</Text>
+                    <Text className={`font-[Futura]  font-bold ${editingSchedule ? "text-green" : "text-green"}`}>
+                        {editingSchedule ? "Update" : "Create"}
+                    </Text>
                 </TouchableOpacity>
             </View>
 
             <ScrollView showsVerticalScrollIndicator={false}>
                 {/* Title */}
-                <Text className="text-3xl font-[Futura] font-medium text-green mb-2 mt-2">Add Schedule</Text>
+                <Text className="text-3xl font-[Futura] font-medium text-green mb-2 mt-2">{titlePage}</Text>
                 <Text className="text-gray-500 mb-6">
-                    To setup a schedule you need to fill out the following details.
+                    {subtitlePage}
                 </Text>
 
                 {/* Schedule Name */}
@@ -132,7 +214,7 @@ export default function AddSchedule() {
                         fontFamily: "Futura",   // apply Futura
                         fontWeight: "300",    }}
                     dropDownContainerStyle={{ borderColor: "#d1d5db" }}
-
+                    disabled={!!editingSchedule}
                 />
 
 
@@ -267,8 +349,22 @@ export default function AddSchedule() {
                             // You can control fonts/colors via custom components
                         />
 
+
                     </View>
                 )}
+                {editingSchedule && (
+                    <TouchableOpacity
+                        onPress={handleDelete}
+                        className="p-5 rounded-lg border border-red-500 items-center"
+
+                    >
+                        <Text className="text-red-500 font-[FuturaMedium]">
+                           Delete Schedule
+                        </Text>
+                    </TouchableOpacity>
+                )}
+
+
             </ScrollView>
         </SafeAreaView>
     );

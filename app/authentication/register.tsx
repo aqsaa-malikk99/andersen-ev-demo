@@ -4,11 +4,14 @@ import {router, useRouter} from "expo-router";
 import AuthCard from "./authCard";
 import {registerUser, UserData} from "@/app/models/user";
 import * as SecureStore from 'expo-secure-store';
+import {setUser, User} from "@/app/store/userSlice";
+import {useDispatch} from "react-redux";
 
 export default function Register() {
     const router = useRouter();
 
 
+    const dispatch = useDispatch();
 
      function validate(formData: Record<string, any>): boolean {
         // Correctly match the property names from the formData object
@@ -81,8 +84,19 @@ export default function Register() {
 
 
                 if(user) {
-                    await SecureStore.setItemAsync("userSession", JSON.stringify(user.id!));
+                    const mappedUser: User = {
+                        id: user.id ? Number(user.id) : 0,  // fallback to 0 if missing
+                        firstName: user.firstName ?? "",
+                        lastName: user.lastName ?? "",
+                        email: user.email,
+                        dob: user.dob ?? "",
+                        phone: user.phone ?? "",
+                    };
 
+                    await SecureStore.setItemAsync("userSession", JSON.stringify(mappedUser));
+                    dispatch(setUser(mappedUser));
+
+                    router.replace("/(tabs)");
                     Alert.alert("Success", "Login successful!", [
                         {text: "OK", onPress: () => router.replace("/(tabs)")},
                     ]);

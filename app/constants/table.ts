@@ -1,4 +1,4 @@
-export enum TABLES{
+export  enum TABLES{
     USERS="users",
     SCHEDULES="schedules",
 }
