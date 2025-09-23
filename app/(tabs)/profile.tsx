@@ -26,14 +26,10 @@ export default function Profile() {
         user?.dob ? new Date(user.dob).toISOString().split("T")[0] : ""
     );
     const [email, setEmail] = useState(user?.email ?? "");
-    const [countryCode, setCountryCode] = useState(
-        user?.phone?.startsWith("+")
-            ? user.phone.slice(0, user.phone.length - 10)
-            : "+" + user?.phone.slice(0, user?.phone.length - 10)
-    );
+
 
     const [phone, setPhone] = useState(
-        user?.phone ? user.phone.slice(-10) : ""
+        user?.phone ??""
     );
 
 
@@ -56,7 +52,7 @@ export default function Profile() {
             lastName,
             dob,
             email,
-            phone: `${countryCode}${phone}`,
+            phone: `${phone}`,
         };
 
         const hasChanged = Object.keys(updatedUser).some(
@@ -166,15 +162,7 @@ export default function Profile() {
                     } border-gray-200 p-5 m-2`}>
                         <Ionicons name="call" size={20} color="gray" className="mr-2" />
 
-                        {/* Country Code */}
-                        <TextInput
-                            value={countryCode}
-                            onChangeText={setCountryCode}
-                            editable={editMode}
-                            placeholder="CC"
-                            keyboardType="phone-pad"
-                            className="w-16 py-2 font-[Futura] border-r border-gray-200 text-center"
-                        />
+
 
                         {/* Phone */}
                         <TextInput

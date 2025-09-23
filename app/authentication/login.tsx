@@ -10,18 +10,15 @@ import {setUser, User} from "@/app/store/userSlice";
 export default function Login() {
     const dispatch = useDispatch();
 
-    function validate(formData: Record<string,any>):boolean {
+    function validate(formData: Record<string, any>): boolean {
+        const email = formData["Email"] ?? "";
+        const password = formData["Password"] ?? "";
 
-        const{
-            "Email":email,
-            "Password":password,
-        }=formData;
-
-        if(!email && !password && !(password.length > 0)){
+        if (!email || !password) {
             Alert.alert("Error", "Please fill out all the details.");
             return false;
-
         }
+
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
             Alert.alert("Error", "Please enter a valid email address.");

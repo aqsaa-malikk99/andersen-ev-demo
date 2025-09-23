@@ -4,28 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="921a4dae-85d5-4998-afd2-7d2de5c3cd26" name="Changes" comment="Basic Database with Authentication">
-      <change afterPath="$PROJECT_DIR$/app/constants/scheduleLimit.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/schedule.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/store/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/store/userSlice.ts" afterDir="false" />
+    <list default="true" id="921a4dae-85d5-4998-afd2-7d2de5c3cd26" name="Changes" comment="features added:&#10;Added full schedule and authentication&#10;added addschedule with crud&#10;enabled profile and data editing&#10;added redux">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/(tabs)/profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/profile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/_layout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/authentication/login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/authentication/login.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/authentication/register.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/authentication/register.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/addSchedule.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/addSchedule.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/scheduleItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/scheduleItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/constants/table.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/constants/table.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/db/database.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/database.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/db/migrations.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/migrations.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/splashScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/splashScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/utils/sessionManager.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,24 +26,24 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "aqsaa-malikk99"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;aqsaa-malikk99&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/aqsaa-malikk99/andersen-ev-demo.git",
-    "accountId": "ae03d58a-76b6-4c81-9e2e-b9f99c685388"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/aqsaa-malikk99/andersen-ev-demo.git&quot;,
+    &quot;accountId&quot;: &quot;ae03d58a-76b6-4c81-9e2e-b9f99c685388&quot;
   }
-}]]></component>
+}</component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="32v4E5IsLBeU3My0Cl6o9givtBE" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -72,6 +55,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -119,7 +103,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1758287598067</updated>
-      <workItem from="1758287599369" duration="55944000" />
+      <workItem from="1758287599369" duration="56083000" />
+      <workItem from="1758565746359" duration="2953000" />
     </task>
     <task id="LOCAL-00001" summary="Added Bottom navigation and add schedule page">
       <option name="closed" value="true" />
@@ -145,7 +130,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758551106154</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="features added:&#10;Added full schedule and authentication&#10;added addschedule with crud&#10;enabled profile and data editing&#10;added redux">
+      <option name="closed" value="true" />
+      <created>1758565657319</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1758565657319</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -166,6 +159,7 @@
     <MESSAGE value="Added Bottom navigation and add schedule page" />
     <MESSAGE value="ScheduleItem added" />
     <MESSAGE value="Basic Database with Authentication" />
-    <option name="LAST_COMMIT_MESSAGE" value="Basic Database with Authentication" />
+    <MESSAGE value="features added:&#10;Added full schedule and authentication&#10;added addschedule with crud&#10;enabled profile and data editing&#10;added redux" />
+    <option name="LAST_COMMIT_MESSAGE" value="features added:&#10;Added full schedule and authentication&#10;added addschedule with crud&#10;enabled profile and data editing&#10;added redux" />
   </component>
 </project>

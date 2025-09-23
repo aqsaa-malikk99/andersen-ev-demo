@@ -1,4 +1,4 @@
-import { View, ScrollView, Alert } from "react-native";
+import {View, ScrollView, Alert, KeyboardAvoidingView, Platform} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import {router, useRouter} from "expo-router";
 import AuthCard from "./authCard";
@@ -24,6 +24,8 @@ export default function Register() {
             "Password": password,
             "Retype Password": retypePassword
         } = formData;
+
+
 
         console.log("Registering user:", JSON.stringify(formData, null, 2));
 
@@ -67,12 +69,14 @@ export default function Register() {
 
 
             if(validate(formData)) {
+                const phonePrefix = formData["phonePrefix"] || "+44";
+                const phone = formData["Phone"] || "";
                 // Map formData to UserData
                 const userData: UserData = {
                     firstName: formData["First Name"] || "",
                     lastName: formData["Last Name"] || "",
                     dob: formData["Date of Birth"] ? new Date(formData["Date of Birth"]).toISOString() : "",
-                    phone: formData["Phone"] || "",
+                    phone: phonePrefix+phone,
                     email: formData["Email"] || "",
                     password: formData["Password"]?.toString() || "", // <-- force string
                 };
@@ -109,32 +113,39 @@ export default function Register() {
 
     return (
         <SafeAreaView className="flex-1 bg-gray-100">
-            <ScrollView
-                className="flex-1"
-                contentContainerStyle={{ flexGrow: 1 }}
-                showsVerticalScrollIndicator={false}
+            <KeyboardAvoidingView
+                style={{ flex: 1 }}
+                behavior={Platform.OS === "ios" ? "padding" : undefined}
+                keyboardVerticalOffset={Platform.OS === "ios" ? 30 : 0} // adjust as needed
             >
-                <View className="flex-1 justify-center items-center px-4">
-                    <AuthCard
-                        title="Create your account"
-                        subtitle=""
-                        fields={[
-                            { label: "First Name", placeholder: "Enter your first name", type: "text" },
-                            { label: "Last Name", placeholder: "Enter your last name", type: "text" },
-                            { label: "Date of Birth", type: "date" },
-                            { label: "Phone", placeholder: "Enter phone number", type: "phone" },
-                            { label: "Email", placeholder: "Enter your email", type: "text" },
-                            { label: "Password", placeholder: "Enter your password", secure: true, type: "password" },
-                            { label: "Retype Password", placeholder: "Retype your password", secure: true, type: "password" },
-                        ]}
-                        primaryButtonText="Register"
-                        footerText="Already have an account?"
-                        footerActionText="Login"
-                        onPrimaryPress={handleRegister} // pass here
-                        onFooterPress={() => router.push("/authentication/login")}
-                    />
-                </View>
-            </ScrollView>
+                <ScrollView
+                    className="flex-1"
+                    contentContainerStyle={{ flexGrow: 1 }}
+                    showsVerticalScrollIndicator={false}
+                >
+                    <View className="flex-1 justify-center items-center px-4">
+                        <AuthCard
+                            title="Create your account"
+                            subtitle=""
+                            fields={[
+                                { label: "First Name", placeholder: "Enter your first name", type: "text" },
+                                { label: "Last Name", placeholder: "Enter your last name", type: "text" },
+                                { label: "Date of Birth", type: "date" },
+                                { label: "Phone", placeholder: "Enter phone number", type: "phone" },
+                                { label: "Email", placeholder: "Enter your email", type: "text" },
+                                { label: "Password", placeholder: "Enter your password", secure: true, type: "password" },
+                                { label: "Retype Password", placeholder: "Retype your password", secure: true, type: "password" },
+                            ]}
+                            primaryButtonText="Register"
+                            footerText="Already have an account?"
+                            footerActionText="Login"
+                            onPrimaryPress={handleRegister} // pass here
+                            onFooterPress={() => router.push("/authentication/login")}
+                        />
+                    </View>
+                </ScrollView>
+            </KeyboardAvoidingView>
+
         </SafeAreaView>
     );
 }
