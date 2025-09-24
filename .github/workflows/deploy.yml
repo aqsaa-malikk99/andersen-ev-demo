@@ -1,0 +1,36 @@
+name: CI/CD Build
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install Expo CLI
+        run: npm install -g expo-cli
+
+      - name: Increment minor version
+        run: |
+          npm version minor --no-git-tag-version
+      - name: Build for Android
+        run: |
+          # expo build:android --non-interactive --no-wait --release-channel production
+      - name: Build for iOS
+        run: |
+          # expo build:ios --non-interactive --no-wait --release-channel production

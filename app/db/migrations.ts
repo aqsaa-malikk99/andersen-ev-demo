@@ -1,41 +1,28 @@
 import * as SQLite from "expo-sqlite";
-import {TABLES} from "@/app/constants/table";
+import { TABLES } from "@/app/constants/table";
 
 export async function runMigrations(db: SQLite.SQLiteDatabase) {
-    // drop existing users table and schedules
 
-
-    await db.execAsync(
-        `
+  await db.execAsync(
+    `
             CREATE TABLE IF NOT EXISTS users
             (
-                id
-                TEXT
-                PRIMARY
-                KEY,
-                firstName
-                TEXT,
-                lastName
-                TEXT,
-                email
-                TEXT
-                UNIQUE,
-                password
-                TEXT,
-                dob
-                TEXT,
-                phone
-                TEXT
+                id TEXT PRIMARY KEY,
+                firstName TEXT,
+                lastName TEXT,
+                email TEXT UNIQUE,
+                password TEXT,
+                dob TEXT,
+                phone TEXT
             );
 
 
         `
-    );
+  );
 
-    // Schedules table
-    await db.execAsync(`
-        CREATE TABLE IF NOT EXISTS ${TABLES.SCHEDULES} (
-                                                           id TEXT PRIMARY KEY,           -- matches Schedule.id as string
+  // Schedules table
+  await db.execAsync(`
+        CREATE TABLE IF NOT EXISTS ${TABLES.SCHEDULES} (  id TEXT PRIMARY KEY,           -- matches Schedule.id as string
                                                            userId INTEGER NOT NULL,       -- foreign key to USERS table
                                                            title TEXT NOT NULL,           -- scheduleName / title
                                                            type TEXT NOT NULL,            -- "time", "charge", or "mileage"
@@ -48,5 +35,4 @@ export async function runMigrations(db: SQLite.SQLiteDatabase) {
                                                            FOREIGN KEY(userId) REFERENCES ${TABLES.USERS}(id)
             );
     `);
-
 }

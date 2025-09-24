@@ -4,11 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="921a4dae-85d5-4998-afd2-7d2de5c3cd26" name="Changes" comment="features added:&#10;Added full schedule and authentication&#10;added addschedule with crud&#10;enabled profile and data editing&#10;added redux">
+    <list default="true" id="921a4dae-85d5-4998-afd2-7d2de5c3cd26" name="Changes" comment="Some bug fixes">
+      <change afterPath="$PROJECT_DIR$/app/components/DaySelector.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/HeaderToolbar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/ScheduleItemWrapper.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/ScheduleTypeDropdown.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/SliderField.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/TimePickerField.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/hooks/useSchedules.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/_layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/(tabs)/profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/profile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/_layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/authentication/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/authentication/_layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/authentication/authCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/authentication/authCard.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/authentication/login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/authentication/login.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/authentication/register.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/authentication/register.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/addSchedule.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/addSchedule.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/dateField.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/scheduleItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/scheduleItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/constants/scheduleLimit.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/constants/scheduleLimit.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/constants/table.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/constants/table.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/constants/theme.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/constants/theme.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/db/crud.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/crud.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/db/database.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/database.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/db/migrations.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/migrations.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/schedule.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/schedule.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +42,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -59,7 +83,6 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "schedules",
     "junie.onboarding.icon.badge.shown": "true",
     "last_opened_file_path": "/Users/aqsamalik/WebstormProjects/andersen-ev-demo/assets/fonts",
@@ -71,6 +94,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "prettierjs.PrettierConfiguration.Package": "/Users/aqsamalik/WebstormProjects/andersen-ev-demo/node_modules/prettier",
+    "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "settings.javascript.prettier",
     "to.speed.mode.migration.done": "true",
     "ts.external.directory.path": "/Users/aqsamalik/WebstormProjects/andersen-ev-demo/node_modules/typescript/lib",
@@ -104,7 +128,8 @@
       <option name="presentableId" value="Default" />
       <updated>1758287598067</updated>
       <workItem from="1758287599369" duration="56083000" />
-      <workItem from="1758565746359" duration="2953000" />
+      <workItem from="1758565746359" duration="3965000" />
+      <workItem from="1758635420456" duration="3056000" />
     </task>
     <task id="LOCAL-00001" summary="Added Bottom navigation and add schedule page">
       <option name="closed" value="true" />
@@ -138,7 +163,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758565657319</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Some bug fixes">
+      <option name="closed" value="true" />
+      <created>1758628732072</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1758628732072</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -160,6 +193,7 @@
     <MESSAGE value="ScheduleItem added" />
     <MESSAGE value="Basic Database with Authentication" />
     <MESSAGE value="features added:&#10;Added full schedule and authentication&#10;added addschedule with crud&#10;enabled profile and data editing&#10;added redux" />
-    <option name="LAST_COMMIT_MESSAGE" value="features added:&#10;Added full schedule and authentication&#10;added addschedule with crud&#10;enabled profile and data editing&#10;added redux" />
+    <MESSAGE value="Some bug fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Some bug fixes" />
   </component>
 </project>
