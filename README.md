@@ -1,50 +1,72 @@
-# Welcome to your Expo app 👋
+# Andersen EV App ⚡
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Here are the images I designed before starting to visualize the app.  
+After completing the designs, I installed **Expo** to start the application development.
 
-## Get started
+---
 
-1. Install dependencies
+## 📱 Application Overview
 
-   ```bash
-   npm install
-   ```
+The **Andersen EV App** is a mobile application built with **React Native (Expo)**.  
+It demonstrates user authentication, profile management, scheduling, and state management using **Redux**.
 
-2. Start the app
+---
 
-   ```bash
-   npx expo start
-   ```
+## 🚀 Features
 
-In the output, you'll find options to open the app in a
+- **Authentication**
+    - Register a new account
+    - Login with your credentials
+    - Demo account available:
+        - **Email:** `alex65287@gmail.com`
+        - **Password:** `Summer102`
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- **SQLite Integration**
+    - Local database to store login and register details
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+- **Schedules**
+    - Add, delete, and edit schedules
 
-## Get a fresh project
+- **Profile**
+    - Update and change profile details
 
-When you're ready, run:
+- **State Management**
+    - **Redux** used to maintain user data across the app
+    - **LocalStorage** used to persist session (for demonstration — faster reads)
 
-```bash
-npm run reset-project
-```
+---
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## 🛠 Tech Stack
 
-## Learn more
+- [Expo](https://expo.dev/) (React Native framework)
+- [SQLite](https://docs.expo.dev/versions/latest/sdk/sqlite/) for local data storage
+- [Redux](https://redux.js.org/) for state management
+- LocalStorage (as an additional persistence layer)
 
-To learn more about developing your project with Expo, look at the following resources:
+---
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+## 📌 Improvements If I Had More Time
 
-## Join the community
+- Implement **Change Password** functionality
+- Add **more animations** for better user experience
+- Improve **state management architecture** to handle larger applications
 
-Join our community of developers creating universal apps.
+---
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## 🧭 Development Workflow (My Understanding)
+
+1. **Design phase** → Created UI mockups and flows before coding.
+2. **Setup** → Installed Expo and initialized the project.
+3. **Database** → Integrated SQLite for handling authentication and schedules.
+4. **State Management** → Added Redux for global state, LocalStorage for quick reads.
+5. **Feature Development** → Built login/register, schedules CRUD, profile update.
+6. **Created a workflow for .Git** → updates for now the package.json version not the release version.
+7. **Refinement** → Focused on usability and tested with demo credentials.
+
+---
+## 🎨 Design Mockups
+Here are the images I designed before starting to visualize the app:
+
+![Design 1](assets/designs/design1.png)  
+![Design 2](assets/designs/design2.png)  
+![Design 3](assets/designs/design3.png)

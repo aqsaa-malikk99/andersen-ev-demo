@@ -36,7 +36,15 @@ export default function AddSchedule() {
         { label: "Charge Level Based", value: "charge" },
         { label: "Mileage Based", value: "mileage" },
     ]);
-
+    const handleDelete = async () => {
+        if (!editingSchedule) return;
+        try {
+            await editingSchedule.delete(); // make sure your Schedule class has a delete() method
+            router.back();
+        } catch (err) {
+            console.log("Failed to delete schedule:", err);
+        }
+    };
     useEffect(() => {
         if (scheduleId) {
             (async () => {
@@ -197,6 +205,17 @@ export default function AddSchedule() {
                         showPicker={!!readyTime}
                         setShowPicker={() => {}}
                     />
+                )}
+                {editingSchedule && (
+                    <TouchableOpacity
+                        onPress={handleDelete}
+                        className="p-5 rounded-lg border border-red-500 items-center"
+
+                    >
+                        <Text className="text-red-500 font-[FuturaMedium]">
+                            Delete Schedule
+                        </Text>
+                    </TouchableOpacity>
                 )}
 
             </ScrollView>
